@@ -37,6 +37,7 @@ router.get('/hostList', function (req, res) {
 
 router.get('/youtubeDownload', function (req, res) {
 	let model = getmodel();
+	model.head.script = ['util/youtubeDownload.js'];
 	_render(res, 'Util/youtubeDownload', model);
 });
 

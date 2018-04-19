@@ -31,11 +31,5 @@
 }
 
 .form_input {
-  display: table;
-  width: 100%;
-}
-
-.form_input-title, .form_input-value{
-  display: inline;
-  width: 40%;
+  padding-top: 5px;
 }
