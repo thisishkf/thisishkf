@@ -1,0 +1,31 @@
+.menu_container {
+	list-style-type: none;
+  margin: 0;
+	padding: 0;
+}
+
+.menu_container li a {
+  display: block;
+	width: 100%;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.image_container-grid4 img{
+  width : 100%;
+
+}
+
+.body_container{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.about_block , .fadein_element{
+  height: 600px;
+  margin-bottom: 100px;
+}
+
+.about_deco{
+  width:100%
+}

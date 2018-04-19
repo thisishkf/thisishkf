@@ -1,4 +1,10 @@
 {
+	"PORT" : 8099,
+	"MONGODB" : {
+		"host" : "127.0.0.1",
+		"port" : "27017",
+		"db"	: "personal"
+	},
 	"process": {
 		"rootjs": "server.js",
 		"timeout": 3000,

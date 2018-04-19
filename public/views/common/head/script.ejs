@@ -1,1 +1,12 @@
-script
+ <!-- Libraries -->
+ <script src="/static/vendor/jquery/js/jquery.min.js"></script>
+ <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+ <!-- Custom -->
+ <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+ <link rel="stylesheet" type="text/css" href="/static/css/animation.css"/>
+ <link rel="stylesheet" type="text/css" href="/static/css/sticky-footer.css"/>
+
+ <% for (let jsUri of script) { %>
+    <script src="/static/js/<%=jsUri%>"></script>
+<% } %>
