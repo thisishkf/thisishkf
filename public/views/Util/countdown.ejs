@@ -17,7 +17,7 @@
 
 <body>
 	<div id="countdown_container">
-		<% issues.forEach(function(issue, i) { %>
+		<% data.forEach(function(issue, i) { %>
 			<div>
 				<div id="flipClock_<%=i%>" class="row flipClock" data-ts="<%=issue.ts%>">
 					<h3><%= issue.issue %> (<%= issue.ts %>)</h3>

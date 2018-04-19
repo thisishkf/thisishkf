@@ -2,15 +2,16 @@
 const express = require('express');
 const { healthCheck } = require('../Services/healthCheck');
 const fs = require('fs');
+const { _render, getmodel } = require('../lib/helper');
 
 var router = express.Router();
+
 router.get('/healthCheck', function (req, res) {
-	// const task = "health checking task";
-	// console.time(task);
+	let model = getmodel();
 	healthCheck().then(result => {
-		res.render('Util/healthCheck', { result: result });
-	})
-		.catch(err => console.log(err));
+		model.main.data = result;
+		_render(res, 'Util/healthCheck', model);
+	}).catch(err => console.log(err));
 });
 
 router.get('/countdown', function (req, res) {
@@ -18,7 +19,9 @@ router.get('/countdown', function (req, res) {
 		{ ts: `${new Date().toJSON().split("T")[0]} 18:00:00`, issue: "收工" },
 		{ ts: `2018-06-13 18:00:00`, issue: "丸爺解放日" },
 	];
-	res.status(200).render('Util/countdown', { issues: issues });
+	let model = getmodel();
+	model.main.data = issues;
+	_render(res, 'Util/countdown', model);
 });
 
 router.get('/hostList', function (req, res) {
@@ -26,9 +29,10 @@ router.get('/hostList', function (req, res) {
 		if (err) {
 			console.log(err);
 		}
-		res.render('Util/hostlist', { data: data });
+		let model = getmodel();
+		model.main.data = data;
+		_render(res, 'Util/hostlist', model);
 	});
-
 });
 
 module.exports = {
