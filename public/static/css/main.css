@@ -29,3 +29,13 @@
 .about_deco{
   width:100%
 }
+
+.form_input {
+  display: table;
+  width: 100%;
+}
+
+.form_input-title, .form_input-value{
+  display: inline;
+  width: 40%;
+}
