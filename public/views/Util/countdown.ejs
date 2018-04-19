@@ -1,0 +1,60 @@
+<html>
+
+<head>
+	<title>Count Down</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<style>
+		body {
+			margin: auto 5%;
+		}
+	</style>
+	
+</head>
+
+<body>
+	<div id="countdown_container">
+		<% data.forEach(function(issue, i) { %>
+			<div>
+				<div id="flipClock_<%=i%>" class="row flipClock" data-ts="<%=issue.ts%>">
+					<h3><%= issue.issue %> (<%= issue.ts %>)</h3>
+					<div class="panel panel-default col-lg-3 col-md-3 col-xs-3">
+						<div class="panel-heading">Days</div><div class="panel-body" id="time-day">--</div>
+					</div>
+					<div class="panel panel-default col-lg-3 col-md-3 col-xs-3">
+						<div class="panel-heading">Hours</div><div class="panel-body" id="time-hours">--</div>
+					</div>
+					<div class="panel panel-default col-lg-3 col-md-3 col-xs-3">
+						<div class="panel-heading">Min</div><div class="panel-body" id="time-mins">--</div>
+					</div>
+					<div class="panel panel-default col-lg-3 col-md-3 col-xs-3">
+						<div class="panel-heading">Sec</div><div class="panel-body" id="time-sec">--</div>
+					</div>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var updateTs = function () {
+				$('.flipClock').each(function(){
+					let _this = $(this);
+					let now = moment();
+					let then = moment(_this.attr('data-ts'));
+					let diff = moment.duration(then.diff(now));
+					_this.find("#time-day").html(diff._data.months * 30 + diff._data.days);
+					_this.find("#time-hours").html(diff._data.hours);
+					_this.find("#time-mins").html(diff._data.minutes);
+					_this.find("#time-sec").html(diff._data.seconds);
+				});
+			};
+
+			setInterval(updateTs, 1000);
+		});
+	</script>
+</body>
+
+</html>

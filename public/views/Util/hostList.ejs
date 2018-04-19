@@ -1,0 +1,21 @@
+<% data.split(/\n/g).forEach(line => { %>
+	<% if(line.indexOf('#') == -1 && line != ''){ %>
+		<% [ip, urisRaw] = line.split(/\t/g); %>
+
+		<% if(typeof urisRaw !== undefined){ %>
+			<%	uris = urisRaw.split(' ') || []; %>
+			<p>
+				<%=ip%>
+				<% for (uri of uris){ %>
+					<a href="http://<%=uri%>" style="margin-right:5px">
+						<%=uri%>
+					</a>
+				<%}%>
+			</p>
+		<% }%>
+	<% } else{ %>
+		<p>
+			<%= line %>
+		</p>
+	<% } %>
+<%});%>
