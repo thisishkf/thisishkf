@@ -1,0 +1,7 @@
+{
+	"process": {
+		"rootjs": "server.js",
+		"timeout": 3000,
+		"max_restart": 2
+	}
+}

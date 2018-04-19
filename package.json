@@ -1,0 +1,21 @@
+{
+	"name"			: "thisishkf",
+	"author"		: "Ho Kin Fai, Sam",
+	"description"	: "test",
+	"version"		: "0.0.1",
+	"license"		: "MIT",
+	"repository"	: { 
+			"type"	: "git",
+			"url"	: "https://github.com/thisishkf/nodejsFramework.git"
+	},
+	"dependencies"	: {
+		"express" : "4.16.3",
+		"path":"0.12.7",
+		"url":"0.11.0",
+		"http":"0.0.0",
+		"ejs":"2.5.7"
+	},
+	"scripts"		: {
+		"start": "node pm.js"
+	}
+}
