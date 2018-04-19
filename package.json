@@ -1,21 +1,26 @@
 {
-	"name"			: "thisishkf",
-	"author"		: "Ho Kin Fai, Sam",
-	"description"	: "test",
-	"version"		: "0.0.1",
-	"license"		: "MIT",
-	"repository"	: { 
-			"type"	: "git",
-			"url"	: "https://github.com/thisishkf/nodejsFramework.git"
+	"name": "thisishkf",
+	"author": "Sam Ho <hkf1113@gmail.com>",
+	"description": "test",
+	"version": "0.0.1",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thisishkf/nodejsFramework.git"
 	},
-	"dependencies"	: {
-		"express" : "4.16.3",
-		"path":"0.12.7",
-		"url":"0.11.0",
-		"http":"0.0.0",
-		"ejs":"2.5.7"
+	"dependencies": {
+		"assert": "^1.4.1",
+		"ejs": "2.5.7",
+		"express": "4.16.3",
+		"fs": "0.0.1-security",
+		"http": "0.0.0",
+		"mocha": "^5.1.1",
+		"path": "0.12.7",
+		"ping": "^0.2.2",
+		"request": "^2.85.0",
+		"url": "0.11.0"
 	},
-	"scripts"		: {
+	"scripts": {
 		"start": "node pm.js"
 	}
 }

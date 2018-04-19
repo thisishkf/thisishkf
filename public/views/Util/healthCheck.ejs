@@ -1,0 +1,51 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		setTimeout(function () {
+			window.location.reload();
+		}, 1800000);
+	</script>
+</head>
+
+<body>
+	<h3>health Check on
+		<%= new Date()%>
+	</h3>
+	<table class="table">
+		<tr>
+			<th>Site</th>
+			<th>IP</th>
+			<th>Status</th>
+			<th>Response Time (ms)</th>
+			<th>Message</th>
+		</tr>
+		<%for (keys in result) {%>
+			<tr>
+				<td>
+					<%=keys%>
+				</td>
+				<td>
+					<%=result[keys].ip%>
+				</td>
+				<td>
+					<% if(result[keys].active){ %>
+						<span class="badge badge-pill badge-success" style="width: 20px; height:20px"> </span>
+						<%} else{ %>
+							<span class="badge badge-pill badge-danger" style="width: 20px; height:20px"> </span>
+							<%}%>
+				</td>
+				<td>
+					<%=result[keys].responseTime%>
+				</td>
+				<td>
+					<%=result[keys].msg%>
+				</td>
+			</tr>
+			<%}%>
+	</table>
+</body>
+
+</html>
