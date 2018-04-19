@@ -1,12 +1,12 @@
 'use strict';
 const express = require('express');
-const { healthCheck } = require('../Services/healthCheck');
 const fs = require('fs');
-const { _render, getmodel } = require('../lib/helper');
+const { _render, getmodel, makeAjax } = require('../lib/helper');
 
 var router = express.Router();
 
 router.get('/healthCheck', function (req, res) {
+	const { healthCheck } = require('../Services/healthCheck');
 	let model = getmodel();
 	healthCheck().then(result => {
 		model.main.data = result;
@@ -33,6 +33,17 @@ router.get('/hostList', function (req, res) {
 		model.main.data = data;
 		_render(res, 'Util/hostlist', model);
 	});
+});
+
+router.get('/youtubeDownload', function (req, res) {
+	let model = getmodel();
+	_render(res, 'Util/youtubeDownload', model);
+});
+
+router.post('/youtubeDownload', function (req, res) {
+	const { downloadYoutube } = require('../Services/youtubeDownload');
+	let result = downloadYoutube();
+	makeAjax(res, result);
 });
 
 module.exports = {
