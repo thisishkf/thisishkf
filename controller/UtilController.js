@@ -43,7 +43,9 @@ router.get('/youtubeDownload', function (req, res) {
 
 router.post('/youtubeDownload', function (req, res) {
 	const { downloadYoutube } = require('../Services/youtubeDownload');
-	let result = downloadYoutube();
+	let data = req.body;
+	data.makeItuensMeta = (data.makeItuensMeta == 'true');
+	let result = downloadYoutube(data);
 	makeAjax(res, result);
 });
 
