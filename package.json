@@ -11,14 +11,19 @@
 	"dependencies": {
 		"assert": "^1.4.1",
 		"ejs": "2.5.7",
-		"express": "4.16.3",
+		"express": "^4.16.3",
+		"ffmetadata": "^1.5.0",
+		"fluent-ffmpeg": "^2.1.2",
 		"fs": "0.0.1-security",
 		"http": "0.0.0",
 		"mocha": "^5.1.1",
+		"mongodb": "^3.0.7",
+		"mysql": "^2.15.0",
 		"path": "0.12.7",
 		"ping": "^0.2.2",
 		"request": "^2.85.0",
-		"url": "0.11.0"
+		"url": "0.11.0",
+		"youtube-dl": "^1.12.2"
 	},
 	"scripts": {
 		"start": "node pm.js"
