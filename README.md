@@ -3,8 +3,9 @@
 - [x] Init Project to Git
 
 #### 0.1
-- [ ] Init Views
-- [ ] Init base services
+- [x] Init Views
+- [x] Init base services
+- [ ] Implement Utilities
 
 ### Phrase 1
 #### 0.1
