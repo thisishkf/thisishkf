@@ -33,3 +33,48 @@
 .form_input {
   padding-top: 5px;
 }
+
+.blackBlock {
+  background-color : #2E2E2E;
+}
+
+.whiteBlock {
+  background-color : none;
+}
+
+#no2g > #playgound{
+  background : #8181F7;
+  border : 1px solid #2E2E2E;
+  margin-top: 1%;
+  margin-bottom: 5%;
+}
+
+#no2g > #playgound > table{
+  margin : auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#no2g > #playgound > table > tr{
+  height : 40px;
+}
+#no2g > #playgound > table > tr > .clickable{
+  width: 40px;
+}
+
+#no2g > #playgound > table > tr ,  
+#no2g > #playgound > table > tr > td{
+  border : 1px solid #6E6E6E;
+}
+
+#no2g > #playgound > table > tr:nth-child(5n+1), #no2g > #playgound > table > tr:nth-child(5n+1) > td{
+  border-bottom: 2px solid #2A120A;
+}
+
+#no2g > #playgound > table > tr > td:nth-child(5n+1){
+  border-right: 2px solid #2A120A;
+}
+
+#no2g > #playgound > tr:nth-child(0)> #no2g > #playgound > tr:nth-child(0) >td {
+  border-left: 2px solid #2A120A;
+}
