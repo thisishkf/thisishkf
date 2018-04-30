@@ -60,9 +60,9 @@ const log2File = function (type = "DEBUG", text = "") {
 	//writing out message
 	fs.stat(fileName, function (err, stat) {
 		if (err === null) {
-			fs.appendFileSync(fileName, text + "\n");
+			fs.appendFileSync(fileName, text + "\n", function(){});
 		} else if (err.code === 'ENOENT') {
-			fs.writeFile(fileName, text);
+			fs.writeFile(fileName, text, function(){});
 		} else {
 			console.log('[ERROR]: ', err.code);
 		}

@@ -26,7 +26,6 @@ var aes = {
 		var deciphered = decipher.update(text, outputEncoding, inputEncoding);
 		deciphered += decipher.final(inputEncoding);
 
-		console.log(deciphered);
 		return deciphered;
 	}
 }
@@ -49,11 +48,10 @@ var md5 = function(text){
 	.digest(ENCODING.base64);
 }
 
-let str = "Hello it's me";
-let a = aes.encrypt(str);
-console.log(a);
-let b = aes.decrypt(a);
 
-console.log(sha256(str));
-console.log(sha1(str));
-console.log(md5(str));
+module.exports = {
+	aes : aes,
+	sha1: sha1,
+	sha256 : sha256,
+	md5 : md5
+};

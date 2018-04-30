@@ -17,10 +17,12 @@ router.get('/healthCheck', function (req, res) {
 router.get('/countdown', function (req, res) {
 	let issues = [
 		{ ts: `${new Date().toJSON().split("T")[0]} 18:00:00`, issue: "收工" },
-		{ ts: `2018-06-13 18:00:00`, issue: "丸爺解放日" },
+		{ ts: `2018-06-08 18:00:00`, issue: "Yeun Last Day" },
+		{ ts: `2018-06-04 18:00:00`, issue: "Nathan Last Day" },
 	];
 	let model = getmodel();
 	model.main.data = issues;
+	model.head.script = ['util/countdown.js'];
 	_render(res, 'Util/countdown', model);
 });
 
