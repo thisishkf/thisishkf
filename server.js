@@ -32,9 +32,11 @@ app.use('/static', express.static(__dirname + '/public/static'));
 
 const { IndexRouter } = require('./controller/IndexController');
 const { UtilRouter } = require('./controller/UtilController');
+const { GameRouter } = require('./controller/GameController');
 
 app.use('', IndexRouter);
 app.use('/util', UtilRouter);
+app.use('/game', GameRouter);
 
 const masterThreadOnStart = function () {
 	logger.info(`Master thread [${process.pid}] start`);
