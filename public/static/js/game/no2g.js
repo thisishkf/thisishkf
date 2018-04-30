@@ -1,6 +1,6 @@
 $(document).ready(function () {
+    var game = {};
     bindCreateCanvasListener("#createCanvas");
-    bindClickableListener();
 });
 
 // Event Listener
@@ -9,8 +9,9 @@ const bindCreateCanvasListener = function (id) {
         $(id).on('click', function (e) {
             let num = $("#canvasSize").val();
             let gameData = generalGame(num);
-            console.log(gameData);
+            game = gameData;
             drawPlayground(parseInt(num), gameData.hints);
+            bindClickableListener();
         });
         return true;
     } catch (err) {
@@ -23,13 +24,25 @@ const bindClickableListener = function () {
     try {
         $('body').on('click', '.clickable', function () {
             let _this = $(this);
-            if (isBlack(_this)) {
-                _this.removeClass('blackBlock');
-                _this.addClass('whiteBlock');
-            } else {
-                _this.addClass('blackBlock');
-                _this.removeClass('whiteBlock');
+            switch (_this.prop('data-status')) {
+                case 'true':
+                    _this.removeClass('blackBlock');
+                    _this.addClass('redBlock');
+                    _this.prop('data-status', 'false');
+                    break;
+                case 'false':
+                    _this.removeClass('redBlock');
+                    _this.addClass('emptyBlock');
+                    _this.prop('data-status', 'empty');
+                    break;
+                case 'empty':
+                default:
+                    _this.removeClass('emptyBlock');
+                    _this.addClass('blackBlock');
+                    _this.prop('data-status', 'true');
+                    break;
             }
+            checkWin();
             return true;
         });
     } catch (err) {
@@ -58,7 +71,7 @@ const drawPlayground = function (num, hints) {
                     let td = drawHorizontalHints(hints.horizontal, y);
                     $(td).appendTo(_tr);
                 } else {
-                    $(`<td class="clickable" id="${y}_${x}"> </td>`).appendTo(_tr);
+                    $(`<td class="clickable emptyBlock" id="${y}_${x}" data-status="empty"> </td>`).appendTo(_tr);
                 }
             }
         }
@@ -149,7 +162,7 @@ const prepareHints = function (data, num) {
     function countFromData(data) {
         let currentCount = 0;
         let rowResult = [];
-        
+
         for (let x = 0; x < data.length; x++) {
             if (data[x] == true) {
                 currentCount++;
@@ -165,7 +178,37 @@ const prepareHints = function (data, num) {
     }
 }
 
-String.prototype.replaceAll = function(search, replacement) {
+const checkWin = function () {
+    let data = [];
+    $("#playgound").find('tr').each(function (i) {
+        if (i > 0) {
+            data[i - 1] = [];
+            let _thisTr = $(this);
+            
+            _thisTr.find('.clickable').each(function () {
+                
+                let _thisTd = $(this);
+                let _thisStatus = false;
+                console.log(_thisTd.html());
+                switch(_thisTd.prop("data-status")){
+                    case "true":
+                        _thisStatus = true;
+                        break;
+                    case "false":
+                    case "empty":
+                    default:
+                        _thisStatus = false;
+                }
+                data[i - 1].push(_thisStatus);
+            });
+        }
+    });
+    if(game.data.toString() == data.toString()){
+        alert("You Win!!");
+    }
+}
+
+String.prototype.replaceAll = function (search, replacement) {
     var target = this;
     return target.replace(new RegExp(search, 'g'), replacement);
 };

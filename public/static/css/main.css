@@ -38,7 +38,11 @@
   background-color : #2E2E2E;
 }
 
-.whiteBlock {
+.redBlock {
+  background-color : #FF0000;
+}
+
+.emptyBlock {
   background-color : none;
 }
 
