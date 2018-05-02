@@ -30,19 +30,19 @@ var aes = {
 	}
 }
 
-var sha1 = function(text){
+var _sha1 = function(text){
 	return crypto.createHash(ALGO.SHA256)
 	.update(text)
 	.digest(ENCODING.base64);
 }
 
-var sha256 = function(text){
+var _sha256 = function(text){
 	return crypto.createHash(ALGO.SHA1)
 	.update(text)
 	.digest(ENCODING.base64);
 }
 
-var md5 = function(text){
+var _md5 = function(text){
 	return crypto.createHash(ALGO.MD5)
 	.update(text)
 	.digest(ENCODING.base64);
@@ -51,7 +51,7 @@ var md5 = function(text){
 
 module.exports = {
 	aes : aes,
-	sha1: sha1,
-	sha256 : sha256,
-	md5 : md5
+	sha1: _sha1,
+	sha256 : _sha256,
+	md5 : _md5
 };

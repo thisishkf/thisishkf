@@ -1,12 +1,12 @@
 const MongoClient = require('mongodb').MongoClient;
-const logger = require('../Logger');
 const assert = require('assert');
+const logger = require('../Logger');
 
 var state = {
 	db: null
 };
 
-exports.connect = function (url) {
+const _connect = function (url) {
 	return new Promise((resolve, reject) => {
 		if (state.db) {
 			return resolve(state.db);
@@ -25,11 +25,11 @@ exports.connect = function (url) {
 	});
 }
 
-exports.get = function () {
+const _get = function () {
 	return state.db;
 }
 
-exports.close = function (done) {
+const _close = function (done) {
 	if (state.db) {
 		state.db.close(function (err, result) {
 			state.db = null;
@@ -39,3 +39,10 @@ exports.close = function (done) {
 		done(err);
 	}
 }
+
+
+module.exports ={
+	connect : _connect,
+	get : _get,
+	close : _close
+};
