@@ -6,6 +6,7 @@ const url = require('url');
 const express = require('express');
 const app = express();
 const server = require('http').Server(app);
+const socket = require('socket.io')(server);
 const path = require('path');
 const bodyParser = require('body-parser');
 
