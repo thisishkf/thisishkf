@@ -103,10 +103,11 @@ const countHorizontal = function (row) {
 }
 
 const updateRowHints = function (row, count) {
-
+    //match from head
+    //match from tail
 }
 
-const counrVertical = function (col) {
+const countVertical = function (col) {
 
 }
 
@@ -184,12 +185,9 @@ const checkWin = function () {
         if (i > 0) {
             data[i - 1] = [];
             let _thisTr = $(this);
-            
             _thisTr.find('.clickable').each(function () {
-                
                 let _thisTd = $(this);
                 let _thisStatus = false;
-                console.log(_thisTd.html());
                 switch(_thisTd.prop("data-status")){
                     case "true":
                         _thisStatus = true;
