@@ -2,7 +2,7 @@
 const express = require('express');
 const fs = require('fs');
 const { _render, getmodel, makeAjax } = require('../lib/helper');
-
+const youtubeDownloader = require('easyyoutubedownload');
 var router = express.Router();
 
 router.get('/healthCheck', function (req, res) {
@@ -44,11 +44,13 @@ router.get('/youtubeDownload', function (req, res) {
 });
 
 router.post('/youtubeDownload', function (req, res) {
-	const { downloadYoutube } = require('../Services/youtubeDownload');
 	let data = req.body;
-	data.makeItuensMeta = (data.makeItuensMeta == 'true');
-	let result = downloadYoutube(data);
-	makeAjax(res, result);
+	youtubeDownloader.setDownloadPath("mp3", __dirname + "/../public/static/files/mp3");
+	youtubeDownloader.setDownloadPath("mp4", __dirname + "/../public/static/files/mp4");
+	youtubeDownloader.download(data , function(result){
+		makeAjax(res, result);
+	});
+	
 });
 
 module.exports = {
