@@ -1,13 +1,14 @@
 'use strict';
+
 const express = require('express');
-const fs = require('fs');
-const { _render, getmodel, makeAjax } = require('../lib/helper');
+
+const { _render, getmodel, makeAjax } = require(__dirname + '/../lib/Helper');
+const Logger = require(__dirname + '/../lib/Logger');
 
 var _router = express.Router();
 
 _router.get('/portfolio', function (req, res) {
-    let model = getmodel();
-    // model.head.script = ['Job/no2g.js'];
+    let model = getmodel('www');
     model.main.data = [
         {
             title: "Second Hand Trading",
@@ -39,7 +40,7 @@ _router.get('/portfolio', function (req, res) {
 });
 
 _router.get('/questions', function (req, res) {
-    let model = getmodel();
+    let model = getmodel('www');
     model.main.data = [
         {
             title: "Career Path",

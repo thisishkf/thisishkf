@@ -1,15 +1,15 @@
 const child_process = require('child_process');
-const config = require('./config').process;
-
+const config = require(__dirname + '/config').process;
+const Logger = require(__dirname + '/lib/Logger');
 var count = 0;
 
 const restart = function () {
-	console.log(`process restarting on ${count} time(s).`);
+	Logger.info(`process restarting on ${count} time(s).`);
 	start(config.rootjs);
 };
 
 const start = function (nodefile) {
-	console.log('Master process is running.');
+	Logger.info('Master process is running.');
 
 	var proc = child_process.spawn('node', [nodefile]);
 	proc.stdout.on('data', function (data) {
@@ -21,12 +21,12 @@ const start = function (nodefile) {
 	});
 
 	proc.on('exit', function (code) {
-		console.log('child process exited with code ' + code);
-		delete(proc);
+		Logger.info('child process exited with code ' + code);
+		delete (proc);
 		if (++count <= config.max_restart) {
 			setTimeout(restart, config.timeout);
 		} else {
-			console.log("Reaching maximum restart count, please contact system admin.");
+			Logger.info("Reaching maximum restart count, please contact system admin.");
 			process.exit(0);
 		}
 	});

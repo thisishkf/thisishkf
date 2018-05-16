@@ -19,14 +19,15 @@ const port = process.env.PORT || config.PORT;
 const Logger = require(__dirname + '/lib/Logger');
 const mysqldb = require(__dirname + '/lib/MySQLService');
 const mongodb = require(__dirname + '/lib/MongoService');
+const redisdb = require(__dirname + '/lib/RedisService');
 
+// middlewares
 app.use(function (req, res, next) {
 	Logger.access(req);
 	next();
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// middlewares
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/public/views');
 app.use(express.static(__dirname + '/public'));
