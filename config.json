@@ -9,5 +9,34 @@
 		"rootjs": "server.js",
 		"timeout": 3000,
 		"max_restart": 2
+	},
+	"Logger": {
+		"fileName": {
+			"DEBUG": "l.api.{DATE}.log",
+			"ACCESS": "l.api.{DATE}.access.log",
+			"ERROR": "l.api.{DATE}.error.log"
+		},
+		"filePath": "./logs/"
+	},
+	"MYSQL" : {
+		"connection": {
+			"host": "127.0.0.1",
+			"port": "3306",
+			"user": "root",
+			"password": "123123",
+			"database": "report"
+		}
+	},
+	"REDIS" : {
+		"config": {
+			"host": "127.0.0.1",
+			"port": "6379"
+		},
+		"columns": {
+			"KEY_TEMPLATE": "ACTION_CATEGORY_CURRENCY_SERVER_CHANNEL",
+			"LASTEST_RECORD": "KEY_LASTEST",
+			"TIMESTAMP_RECORD": "KEY_TIMESTAMP",
+			"INDEX_LASTEST": "ACTION_CATEGORY_CURRENCY_LASTEST"
+		}
 	}
 }

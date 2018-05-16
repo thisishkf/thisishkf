@@ -13,7 +13,7 @@ const devList = [
 	{ uri: "http://admin.dev.megadates.org", ip: "172.21.1.11", title: "Landing - cms" },
 	// { uri: "http://cms.dev.topkaitori.jp", ip: "172.21.1.11", title: "Second Hand - cms" },
 	// { uri: "http://www.dev.topkaitori.jp", ip: "172.21.1.11", title: "Second Hand - www" },
-	{ uri: "http://uk.dev.megadates.org/index.php ", ip: "172.21.1.18", title: "Dating - megadates" },
+	{ uri: "http://uk.dev.megadates.org/index.php ", ip: "172.21.1.19", title: "Dating - megadates" },
 	{ uri: "http://dev.acegames.co", ip: "172.21.1.11", title: "acegames" },
 	{ uri: "http://dev.admin.mobilegamepass.com", ip: "172.21.1.11", title: "mobilegamepass - admin" },
 	{ uri: "http://dev.bestgamesforever.net", ip: "172.21.1.11", title: "bestgamesforever" },
