@@ -1,0 +1,11 @@
+<!-- Libraries -->
+<script src="https://colorlib.com/polygon/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://colorlib.com/polygon/vendors/fastclick/lib/fastclick.js"></script>
+<script src="https://colorlib.com/polygon/vendors/nprogress/nprogress.js"></script>
+<script src="https://colorlib.com/polygon/vendors/iCheck/icheck.min.js"></script>
+<script src="https://colorlib.com/polygon/build/js/custom.min.js"></script>
+
+<% for (let jsUri of script) { %>
+    <script src="/static/js/<%=jsUri%>"></script>
+<% } %>   
