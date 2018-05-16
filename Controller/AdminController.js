@@ -1,3 +1,10 @@
+/**
+ * Routing for Admin module
+ * 
+ * @author 		Sam Ho <hkf1113@gmail.com>
+ * @create 		2018-05-16
+ * @modified 	
+ */
 'use strict';
 
 const express = require('express');
