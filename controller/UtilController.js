@@ -3,9 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const { _render, getmodel, makeAjax } = require('../lib/helper');
 const youtubeDownloader = require('easyyoutubedownload');
-var router = express.Router();
+var _router = express.Router();
 
-router.get('/healthCheck', function (req, res) {
+_router.get('/healthCheck', function (req, res) {
 	const { healthCheck } = require('../Services/healthCheck');
 	let model = getmodel();
 	healthCheck().then(result => {
@@ -14,7 +14,7 @@ router.get('/healthCheck', function (req, res) {
 	}).catch(err => console.log(err));
 });
 
-router.get('/countdown', function (req, res) {
+_router.get('/countdown', function (req, res) {
 	let issues = [
 		{ ts: `${new Date().toJSON().split("T")[0]} 18:00:00`, issue: "收工" },
 		{ ts: `2018-06-08 18:00:00`, issue: "Yeun Last Day" },
@@ -26,7 +26,7 @@ router.get('/countdown', function (req, res) {
 	_render(res, 'Util/countdown', model);
 });
 
-router.get('/hostList', function (req, res) {
+_router.get('/hostList', function (req, res) {
 	fs.readFile('/etc/hosts', 'utf8', function (err, data) {
 		if (err) {
 			console.log(err);
@@ -37,13 +37,13 @@ router.get('/hostList', function (req, res) {
 	});
 });
 
-router.get('/youtubeDownload', function (req, res) {
+_router.get('/youtubeDownload', function (req, res) {
 	let model = getmodel();
 	model.head.script = ['util/youtubeDownload.js'];
 	_render(res, 'Util/youtubeDownload', model);
 });
 
-router.post('/youtubeDownload', function (req, res) {
+_router.post('/youtubeDownload', function (req, res) {
 	let data = req.body;
 	youtubeDownloader.setDownloadPath("mp3", __dirname + "/../public/static/files/mp3");
 	youtubeDownloader.setDownloadPath("mp4", __dirname + "/../public/static/files/mp4");
@@ -53,7 +53,5 @@ router.post('/youtubeDownload', function (req, res) {
 	
 });
 
-module.exports = {
-	UtilRouter: router
-};
+module.exports = _router;
 

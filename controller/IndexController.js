@@ -1,19 +1,16 @@
 'use strict';
 const express = require('express');
 
-var router = express.Router();
-router.get('/', function(req, res){
+var _router = express.Router();
+_router.get('/', function(req, res){
 	res.status(200).end("/");
 });
-router.get('/login', function(req, res){
+_router.get('/login', function(req, res){
 	res.status(200).end("/login");
 });
 
-router.get('/logout', function(req, res){
+_router.get('/logout', function(req, res){
 	res.status(200).end("/logout");
 });
 	
-module.exports = {
-    IndexRouter : router
-};
-
+module.exports = _router;

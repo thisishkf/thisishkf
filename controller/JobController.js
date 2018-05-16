@@ -3,9 +3,9 @@ const express = require('express');
 const fs = require('fs');
 const { _render, getmodel, makeAjax } = require('../lib/helper');
 
-var router = express.Router();
+var _router = express.Router();
 
-router.get('/portfolio', function (req, res) {
+_router.get('/portfolio', function (req, res) {
     let model = getmodel();
     // model.head.script = ['Job/no2g.js'];
     model.main.data = [
@@ -26,24 +26,41 @@ router.get('/portfolio', function (req, res) {
         },
         {
             title: "Dating Site",
-            img: "",
+            img: "#",
             description: [""]
         },
         {
             title: "PlaceHolder",
-            img: "",
+            img: "#",
             description: [""]
         }
     ];
     _render(res, 'Job/portfolio.ejs', model);
 });
 
-router.get('/questions', function (req, res) {
+_router.get('/questions', function (req, res) {
     let model = getmodel();
+    model.main.data = [
+        {
+            title: "Career Path",
+            question: "Is any promotion steps for the career"
+        },
+        {
+            title: "Salary Review",
+            question: "If there is salary review after probation"
+        },
+        {
+            title: "AL",
+            question: "How many AL and how to count"
+        },
+        {
+            title: "SL",
+            question: "How many AL and how to count"
+        }
+    ];
+
     _render(res, 'Job/question.ejs', model);
 });
 
-module.exports = {
-    JobRouter: router
-};
+module.exports = _router;
 
