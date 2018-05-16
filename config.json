@@ -1,10 +1,5 @@
 {
-	"PORT" : 8099,
-	"MONGODB" : {
-		"host" : "127.0.0.1",
-		"port" : "27017",
-		"db"	: "personal"
-	},
+	"PORT": 8099,
 	"process": {
 		"rootjs": "server.js",
 		"timeout": 3000,
@@ -18,28 +13,23 @@
 		},
 		"filePath": "./logs/"
 	},
-	"MYSQL" : {
-		"connection": {
-			"host": "127.0.0.1",
-			"port": "3306",
-			"user": "root",
-			"password": "123123",
-			"database": "report"
-		}
+	"MONGODB": {
+		"host": "127.0.0.1",
+		"port": "27017",
+		"db": "personal"
 	},
-	"REDIS" : {
-		"config": {
-			"host": "127.0.0.1",
-			"port": "6379"
-		},
-		"columns": {
-			"KEY_TEMPLATE": "ACTION_CATEGORY_CURRENCY_SERVER_CHANNEL",
-			"LASTEST_RECORD": "KEY_LASTEST",
-			"TIMESTAMP_RECORD": "KEY_TIMESTAMP",
-			"INDEX_LASTEST": "ACTION_CATEGORY_CURRENCY_LASTEST"
-		}
+	"MYSQL": {
+		"host": "127.0.0.1",
+		"port": "3306",
+		"user": "root",
+		"password": "123123",
+		"database": "report"
+	},
+	"REDIS": {
+		"host": "127.0.0.1",
+		"port": "6379"
 	},
 	"CRYPTO": {
-		"private_key" : "asdf123sdf54c"
+		"private_key": "asdf123sdf54c"
 	}
 }

@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 
-const config = require('./config');
+const config = require(__dirname + '/config');
 const port = process.env.PORT || config.PORT;
 
 const Logger = require(__dirname + '/lib/Logger');
@@ -52,11 +52,12 @@ const masterThreadOnStart = function () {
 
 const serverOnCreate = function () {
 	server.listen(port, function () {
-		let DEFAULT_MONGO_URL = `mongodb://${config.MONGODB.host}:${config.MONGODB.port}/${config.MONGODB.db}`;
-		mongodb.connect(DEFAULT_MONGO_URL).then(() => {
-			mysqldb.connect().then(() => {
+		// let DEFAULT_MONGO_URL = `mongodb://${config.MONGODB.host}:${config.MONGODB.port}/${config.MONGODB.db}`;
+		mongodb.connect().then(() => {
+			mysqldb.connect()
+			.then(() => {
 				serverOnStart();
-			}).catch((err) => { serverOnDestory(err); });
+			});
 		}).catch((err) => { serverOnDestory(err); });
 	});
 }
