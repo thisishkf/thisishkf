@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { aes, sha1, sha256, md5 } = require('../Services/cryptoService');
+const { aes, sha1, sha256, md5 } = require('../lib/cryptoService');
 
 describe('cryptoService', () => {
 	describe('aes', () => {
