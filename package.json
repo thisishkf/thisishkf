@@ -1,12 +1,12 @@
 {
 	"name": "thisishkf",
 	"author": "Sam Ho <hkf1113@gmail.com>",
-	"description": "test",
+	"description": "Personal ",
 	"version": "0.0.1",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/thisishkf/nodejsFramework.git"
+		"url": "https://github.com/thisishkf/thisishkf.git"
 	},
 	"dependencies": {
 		"assert": "^1.4.1",
