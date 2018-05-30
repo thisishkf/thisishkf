@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 const express = require('express');
 
@@ -39,28 +39,29 @@ _router.get('/portfolio', function (req, res) {
     _render(res, 'Job/portfolio.ejs', model);
 });
 
-_router.get('/questions', function (req, res) {
-    let model = getmodel('www');
-    model.main.data = [
-        {
-            title: "Career Path",
-            question: "Is any promotion steps for the career"
-        },
-        {
-            title: "Salary Review",
-            question: "If there is salary review after probation"
-        },
-        {
-            title: "AL",
-            question: "How many AL and how to count"
-        },
-        {
-            title: "SL",
-            question: "How many AL and how to count"
-        }
-    ];
+_router.get('/countAL', function (req, res) {
+    let model = getmodel('www', ['Job/countAl.js']);
+    let data = {
+        joinDate: '2017-06-12',
+        alPerYear: 12,
+        alused: 0,
+        alLeft : 0,
+        totalAl: 0,
+        alHistory: [
+            { date: "2018-04-26", count: 0.25 }
+        ]
+    };
 
-    _render(res, 'Job/question.ejs', model);
+    let timeDifference = new Date().getTime() - new Date(data.joinDate).getTime();
+    data.totalAl = (timeDifference / (1000 * 3600 * 24) / 365) * data.alPerYear;
+
+    data.alHistory.forEach(ele => {
+        data.alused += ele.count;
+    });
+    data.alLeft = data.totalAl - data.alused;
+    model.main.data = data;
+
+    _render(res, 'Job/countAl.ejs', model);
 });
 
 module.exports = _router;
