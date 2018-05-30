@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; 
 const express = require('express');
 const fs = require('fs');
 const youtubeDownloader = require('easyyoutubedownload');
@@ -22,9 +22,9 @@ _router.get('/healthCheck', function (req, res) {
 _router.get('/countdown', function (req, res) {
 	const issues = [
 		{ ts: `${new Date().toJSON().split("T")[0]} 18:00:00`, issue: "收工" },
-		{ ts: `2018-06-10 18:00:00`, issue: "Yeun Last Day" },
+		{ ts: `2018-06-08 18:00:00`, issue: "Yeun Last Day" },
 		{ ts: `2018-06-01 17:30:00`, issue: "Nathan Last Day" },
-		{ ts: `2018-07-02 18:00:00`, issue: "Sam Last Day" },
+		{ ts: `2018-06-29 18:00:00`, issue: "Sam Last Day" },
 	];
 	let model = getmodel('www');
 	model.main.data = issues;
@@ -41,6 +41,11 @@ _router.get('/hostList', function (req, res) {
 		model.main.data = data;
 		_render(res, 'Util/hostlist', model);
 	});
+});
+
+_router.get('/9220Honor', function (req, res) {
+	let model = getmodel('www',['util/honor.js']);
+	_render(res, 'Util/honor', model);
 });
 
 _router.get('/youtubeDownload', function (req, res) {
