@@ -1,15 +1,16 @@
 {
 	"name": "thisishkf",
 	"author": "Sam Ho <hkf1113@gmail.com>",
-	"description": "test",
+	"description": "Personal ",
 	"version": "0.0.1",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/thisishkf/nodejsFramework.git"
+		"url": "https://github.com/thisishkf/thisishkf.git"
 	},
 	"dependencies": {
 		"assert": "^1.4.1",
+		"cheerio": "^1.0.0-rc.2",
 		"easyyoutubedownload": "^1.0.0",
 		"ejs": "2.5.7",
 		"express": "^4.16.3",
@@ -22,6 +23,7 @@
 		"mysql": "^2.15.0",
 		"path": "0.12.7",
 		"ping": "^0.2.2",
+		"redis": "^2.8.0",
 		"request": "^2.85.0",
 		"socket.io": "^2.1.0",
 		"url": "0.11.0",

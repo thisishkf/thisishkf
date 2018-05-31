@@ -1,0 +1,11 @@
+<!-- Libraries -->
+<script src="/static/vendor/jquery/js/jquery-admin.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap-admin.min.js"></script>
+<script src="/static/vendor/fastclick/js/fastclick.js"></script>
+<script src="/static/vendor/nprogress/js/nprogress.js"></script>
+<script src="/static/vendor/iCheck/js/icheck.min.js"></script>
+<script src="/static/vendor/colorLib/js/colorlib.min.js"></script>
+
+<% for (let jsUri of script) { %>
+    <script src="/static/js/<%=jsUri%>"></script>
+<% } %>   

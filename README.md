@@ -1,12 +1,12 @@
-### Phrase 0 
-#### 0.0
-- [x] Init Project to Git
+# Thisishkf
+A simple Personal Project written in Node.js. 
 
-#### 0.1
-- [x] Init Views
-- [x] Init base services
-- [ ] Implement Utilities
-
-### Phrase 1
-#### 0.1
+## Task List
+- [x] Init Project
+- [x] Init MVC Setting
+- [x] Init Mocha Test
+- [x] Init WWW Panel 
 - [ ] Init Admin Panel
+- [ ] 404 Handling
+- [ ] Pre-routing Auth Checking
+

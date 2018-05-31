@@ -1,8 +1,0 @@
-{
-	"fileName"	: {
-		"DEBUG"		: "l.api.{DATE}.log",
-		"ACCESS"	: "l.api.{DATE}.access.log",
-		"ERROR"		: "l.api.{DATE}.error.log"
-	},
-	"filePath" 	:"/Users/sa/logs/"
-}
