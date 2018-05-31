@@ -1,9 +1,9 @@
 <div id="countdown_container">
 	<% data.forEach(function(issue, i) { %>
 		<div>
-			<div id="flipClock_<%=i%>" class="row flipClock" data-ts="<%=issue.ts%>">
+			<div id="flipClock_<%=i%>" class="row flipClock" data-ts="<%=issue.timestamp%>">
 				<div style="display:block; width:100%;">
-					<h3><%= issue.issue %> (<%= issue.ts %>)</h3>
+					<h3><%= issue.issue %> (<%= issue.timestamp %>)</h3>
 				</div>
 				<div class="row" style="width:100%;">
 					<div class="panel panel-default col-lg-3 col-md-3 col-xs-3">

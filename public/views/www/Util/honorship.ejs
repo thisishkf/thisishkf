@@ -1,0 +1,49 @@
+<div id="honor">
+	<div>
+		<button id="showDetail" class="btn btn-info">Toggle Course Detail</button>
+		<button id="showCourse" class="btn btn-info">Toggle Course Table</button>
+	</div>
+	<table id="scoreBoard" border="1" class="table">
+		<caption>Course Table</caption>
+		<thead>
+			<tr>
+				<th>Course Code</th>
+				<th class="course_title">Course Title</th>
+				<th class="credit">Credit</th>
+				<th class="course_level">Course Level</th>
+				<th class="honorClass">Course Group</th>
+				<th class="grade">Grade</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for ( let course of data ) { %>
+				<tr data-course="<%= course.course_code %>">
+					<td><%= course.course_code %></td>
+					<td class="course_title"><%= course.title %></td>
+					<td class="credit"><%= course.credit %></td>
+					<td class="course_level"><%= course.level %></td>
+					<td class="honorClass"><%= course.group %></td>
+					<td>
+						<select>
+							<option selected="selected" disabled="disabled">-- GPA --</option>
+							<option value="4">A (4) </option>
+							<option value="3.7">A- (3.7) </option>
+							<option value="3.3">B+ (3.3) </option>
+							<option value="3">B (3) </option>
+							<option value="2.7">B- (2.7) </option>
+							<option value="2.3">C+ (2.3) </option>
+							<option value="2">C- (2) </option>
+						</select>
+					</td>
+				</tr>
+			<% } %>
+		</tbody>
+
+	</table>
+	<hr/>
+	<table id="honorBoard-a" border="1" class="table"></table>
+	<hr/>
+	<table id="honorBoard-b" border="1" class="table"></table>
+	<hr/>
+	<table id="honorBoard-summary" border="1" class="table"></table>
+</div>
