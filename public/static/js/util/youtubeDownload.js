@@ -20,6 +20,9 @@ $(document).ready(function () {
 			},
 			success(res) {
 				console.log(res);
+				if(res.r == true){
+					alert("Download success");
+				}
 			},
 			error() {
 

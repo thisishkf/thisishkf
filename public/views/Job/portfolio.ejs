@@ -1,4 +1,4 @@
-<div id="portfolio">
+<div id="portfolio" style="margin-left: 5px">
     <% data.forEach(function(site, i) { %>
         <div class="row" id="site_<%=i%>">
             <div class="col-lg-6 col-md-6 col-xs 12">
@@ -17,7 +17,9 @@
             </div>
             <div class="col-lg-4 col-md-4 col-xs 12">
                 <div class="screenCap">
+                    <% if (site.img != ""){ %>
                     <img src="<%= site.img %>" width="100%" />
+                    <% } %>
                 </div>
             </div>
         </div>
