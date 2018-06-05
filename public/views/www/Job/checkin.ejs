@@ -1,0 +1,12 @@
+<div id="checkin">
+	<% if (data) { %>
+		<div>
+			Today Checkin Time : <%= data.create_timestamp.toTimeString().split(' ')[0] %>
+		</div>
+		<button id="check" class="btn btn-success checkin">Check In</button>
+	<% }else{ %>
+		<button id="check" class="btn btn-success checkout">Check Out</button>
+	<% } %>
+
+
+</div>

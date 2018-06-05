@@ -1,0 +1,63 @@
+<div id="countAl">
+
+	<table id="al_info" class="table">
+		<caption>AL Summary</caption>
+		<tbody>
+			<tr>
+				<td>Join Date</td>
+				<td>
+					<%= data.joinDate %>
+				</td>
+			</tr>
+			<tr>
+				<td>Total AL per Year</td>
+				<td>
+					<%= data.alPerYear %>
+				</td>
+			</tr>
+			<tr>
+				<td>Total AL </td>
+				<td>
+					<%= data.totalAl %>
+				</td>
+			</tr>
+			<tr>
+				<td>Total AL Left</td>
+				<td>
+					<%= data.alLeft %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br/>
+
+	<table id="al_used" class="table">
+		<caption>AL history</caption>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>AL used</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if ( data.alHistory.length > 0 ){ %>
+				<% for ( let alRecords of data.alHistory ) { %>
+					<tr>
+						<td>
+							<%= alRecords.date %>
+						</td>
+						<td>
+							<%= alRecords.count %>
+						</td>
+					</tr>
+				<% } %>
+				<tr>
+					<td>Total</td>
+					<td><%= data.alused %></td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+
+</div>

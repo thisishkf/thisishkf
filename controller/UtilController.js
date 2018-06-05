@@ -1,10 +1,11 @@
-'use strict'; 
+'use strict';
 const express = require('express');
 const fs = require('fs');
 const youtubeDownloader = require('easyyoutubedownload');
 
 const { _render, getmodel, makeAjax } = require(__dirname + '/../lib/Helper');
 const Logger = require(__dirname + '/../lib/Logger');
+const mysqldb = require(__dirname + '/../lib/MySQLService');
 
 var _router = express.Router();
 
@@ -20,16 +21,17 @@ _router.get('/healthCheck', function (req, res) {
 });
 
 _router.get('/countdown', function (req, res) {
-	const issues = [
-		{ ts: `${new Date().toJSON().split("T")[0]} 18:00:00`, issue: "收工" },
-		{ ts: `2018-06-08 18:00:00`, issue: "Yeun Last Day" },
-		{ ts: `2018-06-01 17:30:00`, issue: "Nathan Last Day" },
-		{ ts: `2018-06-29 18:00:00`, issue: "Sam Last Day" },
-	];
-	let model = getmodel('www');
-	model.main.data = issues;
-	model.head.script = ['util/countdown.js'];
-	_render(res, 'Util/countdown', model);
+	const SQL_S_COUNTDOWN = "SELECT issue, `timestamp` FROM countdown WHERE status = :status AND timestamp > CURRENT_TIMESTAMP";
+	mysqldb.select(SQL_S_COUNTDOWN, { status: 1 }, function (results) {
+		results.push({
+			issue: '收工',
+			timestamp: `${new Date().toJSON().split("T")[0]} 18:00:00`
+		});
+		let model = getmodel('www');
+		model.main.data = results;
+		model.head.script = ['util/countdown.js'];
+		_render(res, 'Util/countdown', model);
+	});
 });
 
 _router.get('/hostList', function (req, res) {
@@ -43,13 +45,17 @@ _router.get('/hostList', function (req, res) {
 	});
 });
 
-_router.get('/9220Honor', function (req, res) {
-	let model = getmodel('www',['util/honor.js']);
-	_render(res, 'Util/honor', model);
+_router.get('/honorship/:code', function (req, res) {
+	const SQL_S_HONORSHIP_BY_PROGRAM = "SELECT `course_code`, `title`, `credit`, `level`, `group` FROM honorship WHERE status = :status AND program_code = :code";
+	mysqldb.select(SQL_S_HONORSHIP_BY_PROGRAM, { status: 1, code: req.params.code }, function (results) {
+		let model = getmodel('www', ['util/honorship.js']);
+		model.main.data = results;
+		_render(res, 'Util/honorship', model);
+	});
 });
 
 _router.get('/youtubeDownload', function (req, res) {
-	let model = getmodel('www',['util/youtubeDownload.js']);
+	let model = getmodel('www', ['util/youtubeDownload.js']);
 	_render(res, 'Util/youtubeDownload', model);
 });
 
@@ -57,10 +63,10 @@ _router.post('/youtubeDownload', function (req, res) {
 	let data = req.body;
 	youtubeDownloader.setDownloadPath("mp3", __dirname + "/../public/static/files/mp3");
 	youtubeDownloader.setDownloadPath("mp4", __dirname + "/../public/static/files/mp4");
-	youtubeDownloader.download(data , function(result){
+	youtubeDownloader.download(data, function (result) {
 		makeAjax(res, result);
 	});
-	
+
 });
 
 module.exports = _router;
