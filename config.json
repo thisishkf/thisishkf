@@ -16,13 +16,13 @@
 	"MONGODB": {
 		"host": "127.0.0.1",
 		"port": "27017",
-		"db": "personal"
+		"database": "football"
 	},
 	"MYSQL": {
 		"host": "127.0.0.1",
-		"port": "3306",
-		"user": "root",
-		"password": "123123",
+		"port": "0",
+		"user": "thisishkf",
+		"password": "19931113",
 		"database": "personal"
 	},
 	"REDIS": {

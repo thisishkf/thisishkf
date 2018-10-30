@@ -6,6 +6,7 @@ const youtubeDownloader = require('easyyoutubedownload');
 const { _render, getmodel, makeAjax } = require(__dirname + '/../lib/Helper');
 const Logger = require(__dirname + '/../lib/Logger');
 const mysqldb = require(__dirname + '/../lib/MySQLService');
+const mongodb = require(__dirname + '/../lib/MongoService');
 
 var _router = express.Router();
 
@@ -66,7 +67,6 @@ _router.post('/youtubeDownload', function (req, res) {
 	youtubeDownloader.download(data, function (result) {
 		makeAjax(res, result);
 	});
-
 });
 
 module.exports = _router;

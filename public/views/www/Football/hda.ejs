@@ -1,0 +1,22 @@
+<style>
+    * {
+        overflow-wrap: break-word;
+    }
+</style>
+<h2>主客和</h2>
+<% Object.keys(data).sort().forEach(function(ele){ %>
+    <div>
+        <%=ele%>
+        <br/>
+        <%= JSON.stringify(data[ele]) %>
+    </div>
+    <hr/>
+<% }) %>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            window.location.reload();
+        },60000);
+    });
+</script>

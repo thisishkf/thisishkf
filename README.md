@@ -10,3 +10,8 @@ A simple Personal Project written in Node.js.
 - [ ] 404 Handling
 - [ ] Pre-routing Auth Checking
 
+
+
+
+- [ ] ODDS match with HKJC
+- [ ] HKJC match result  

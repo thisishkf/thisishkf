@@ -1,20 +1,24 @@
 {
 	"www": {
 		"Util": [
-			{ "title": "HealthCheck", "uri": "/util/healthCheck", "status": "active" },
-			{ "title": "Count Down", "uri": "/util/countdown", "status": "active" },
-			{ "title": "Host List", "uri": "/util/hostList", "status": "active" },
-			{ "title": "Honorship Calculator", "uri": "/util/honorship/9220", "status": "active" },
+			{ "title": "HealthCheck", "uri": "/util/healthCheck", "status": "inactive" },
+			{ "title": "Count Down", "uri": "/util/countdown", "status": "inactive" },
+			{ "title": "Host List", "uri": "/util/hostList", "status": "inactive" },
+			{ "title": "Honorship Calculator", "uri": "/util/honorship/9220", "status": "inactive" },
 			{ "title": "Youtube Download", "uri": "/util/youtubeDownload", "status": "active" }
 		],
 
 		"Game": [
-			{ "title": "no2g", "uri": "/game/no2g", "status": "active" }
+			{ "title": "no2g", "uri": "/game/no2g", "status": "inactive" }
 		],
 
 		"Job": [
 			{ "title": "countAL", "uri": "/job/countAL", "status": "active" },
-			{ "title": "Check In", "uri": "/job/checkin", "status": "active" }
+			{ "title": "Check In", "uri": "/job/checkin", "status": "inactive" }
+		],
+
+		"Football" : [
+			{ "title": "Match List", "uri": "/football/index", "status": "active" }
 		]
 	},
 	"admin" : {}

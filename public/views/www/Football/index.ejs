@@ -1,0 +1,11 @@
+<% data.matchList.forEach( ele => { %>
+    <div>
+        <%=ele.home%>- <%=ele.away%> :
+        <a href="/football/hda/<%=ele.id%>">主客和</a> |
+        <a href="/football/c/<%=ele.id%>">角球大細</a> |
+        <a href="/football/s/<%=ele.id%>">入球大細</a> |
+        <a href="/football/crs/<%=ele.id%>">全場波膽</a> |
+        <a href="/football/fcs/<%=ele.id%>">半場波膽</a> |
+        <a href="/football/ttgo/<%=ele.id%>">總入球數</a>
+    </div>
+<% }) %>

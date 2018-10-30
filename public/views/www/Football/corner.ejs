@@ -1,0 +1,27 @@
+<style>
+    * {
+        overflow-wrap: break-word;
+    }
+</style>
+<h2>角球大細</h2>
+<% Object.keys(data).sort().forEach(function(ele){ %>
+    <div>
+        <%=ele%>(細):
+        <br/>
+        <%= JSON.stringify(data[ele].L) %>
+    </div>
+    <div>
+        <%=ele%>(大):
+        <br/>
+        <%= JSON.stringify(data[ele].H) %>
+    </div>
+    <hr/>
+<% }) %>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            window.location.reload();
+        },60000);
+    });
+</script>

@@ -39,6 +39,7 @@ app.use('/util', require('./Controller/UtilController'));
 app.use('/game', require('./Controller/GameController'));
 app.use('/job', require('./Controller/JobController'));
 app.use('/admin', require('./Controller/AdminController'));
+app.use('/football', require('./Controller/FootballController'));
 
 const masterThreadOnStart = function () {
 	Logger.info(`Master thread [${process.pid}] start`);
@@ -77,8 +78,8 @@ const serverOnDestory = function (err = null) {
 	process.exit(1);
 }
 
-if (cluster.isMaster) {
-	masterThreadOnStart();
-} else {
+// if (cluster.isMaster) {
+// 	masterThreadOnStart();
+// } else {
 	serverOnCreate();
-}
+// }
